@@ -21,7 +21,7 @@ void direct_insertion_sort(int* seq, int len)
 /*
 二分插入排序
 	*思想：在直接插入排序的基础上，为减少比较次数，使用二分查找寻找插入位置。
-	*稳定性：稳定
+	*稳定性：稳定。
 */
 void binary_insertion_sort(int* seq, int len)
 {
@@ -54,8 +54,22 @@ void binary_insertion_sort(int* seq, int len)
 /*
 Shell排序
 	*思想：先将整个待排序的记录序列分割成为若干子序列分别进行直接插入排序，待整个序列中的记录“基本有序”时，再对全体记录进行依次直接插入排序。
+	*稳定性：不稳定。
 */
 void shell_sort(int* seq, int len)
 {
-
+	//将序列分成gap组
+	for (int gap = len / 2; gap > 0; gap /= 2)
+	{
+		//从每组的第二个元素开始进行直插排序
+		for (int i = gap; i < n; i++)
+		{
+			int key = seq[i];
+			for (int j = i - gap; j >= 0 && seq[j] > key; j -= gap)
+			{
+				seq[j+ gap] = seq[j];
+			}
+			seq[j + gap] = key;
+		}
+	}
  }
