@@ -11,3 +11,10 @@
 /.vs/VSWorkspaceState.json
 /.vs/alogrithms/v16/ipch/AutoPCH/8c2ae21d8f01a144/SORT.ipch
 /.vs/slnx.sqlite-journal
+*.opendb
+*.sln
+*.vcxproj
+*.filters
+*.user
+*.suo
+
