@@ -9,8 +9,8 @@ void direct_insertion_sort(int* seq, int len)
 {
 	for (int i = 1; i < len; i++)
 	{
-		int key = seq[i];
-		for (int j = i - 1; j >= 0 &&  key < seq[j]; j--)
+		int key = seq[i], j = i - 1;
+		for (; j >= 0 && key < seq[j]; j--)
 		{
 			//后移元素
 			seq[j + 1] = seq[j];
@@ -33,7 +33,7 @@ void binary_insertion_sort(int* seq, int len)
 		int right = i - 1;
 		while (left <= right)
 		{
-			int middle = (right + left) /2;
+			int middle = (right + left) / 2;
 			//如果条件为seq[middle] >= key，则排序不稳定
 			if (seq[middle] > key)
 			{
@@ -44,7 +44,7 @@ void binary_insertion_sort(int* seq, int len)
 				left = middle + 1;
 			}
 		}
-		for (int j = i - 1; j >= left ; j--)
+		for (int j = i - 1; j >= left; j--)
 		{
 			seq[j + 1] = seq[j];
 		}
@@ -63,17 +63,16 @@ void shell_sort(int* seq, int len)
 	for (int gap = len / 2; gap > 0; gap /= 2)
 	{
 		//从每组的第二个元素开始进行直插排序
-		for (int i = gap; i < n; i++)
+		for (int i = gap; i < len; i++)
 		{
-			int key = seq[i];
-			for (int j = i - gap; j >= 0 && seq[j] > key; j -= gap)
+			int key = seq[i], j = i - gap;
+			for (; j >= 0 && seq[j] > key; j -= gap)
 			{
-				seq[j+ gap] = seq[j];
+				seq[j + gap] = seq[j];
 			}
-			seq[j + gap] = key;
 		}
 	}
- }
+}
 
 /*
 将两个有序序列合并为一个有序序列。
