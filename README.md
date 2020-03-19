@@ -1,4 +1,4 @@
-# alogrithms& data structures  
+# Alogrithms & Data Structures  
 
 ## 算法部分  
 
