@@ -115,3 +115,4 @@ void merge_sort(int* seq, int left, int right)
 		merge(seq, left, middle, right);
 	}
 }
+
