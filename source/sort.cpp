@@ -1,4 +1,45 @@
 ﻿/*
+冒泡排序
+	*时间复杂度：O(n²)
+*/
+void bubble_sort(int* seq, int len)
+{
+	for (int i = 0; i < len - 1; i++)
+	{
+		for (int j = 0; j < len - i - 1; j++)
+		{
+			if (seq[j] > seq[j + 1])
+			{
+				std::swap(seq[j], seq[j + 1]);
+			}
+		}
+	}
+}
+
+/*
+选择排序
+	*时间复杂度：O(n²)
+*/
+void select_sort(int* seq, int len)
+{
+	for (int i = 0; i < len - 1; i++)
+	{
+		int min_index = i;
+		for (int j = i + 1; j < len; j++)
+		{
+			if (seq[min_index] > seq[j])
+			{
+				min_index = j;
+			}
+		}
+		if (seq[min_index] != seq[i])
+		{
+			std::swap(seq[i], seq[min_index]);
+		}
+	}
+}
+
+/*
 直接插入排序
 	*思想：每趟将一个元素，按其大小插入到它前面已经排序的子序列中，依此重复，直到插入全部元素。
 	*场景：元素数量较小。
@@ -117,11 +158,40 @@ void merge_sort(int* seq, int left, int right)
 }
 
 /*
+	*维持最大堆的性质
+	*时间复杂度：O(lgn)
+*/
+void max_heapify(int* heap, int index, int size)
+{
+	int left = 2 * index + 1, right = 2 * index + 2, max = index;
+	if (left < size && heap[left] > heap[index])
+	{
+		max = left;
+	}
+	if (right < size && heap[right] > heap[max])
+	{
+		max = right;
+	}
+	if (index != max)
+	{
+		std::swap(heap[index], heap[max]);
+		max_heapify(heap, max, size);
+	}
+}
+/*
 堆排序
-	*
+	*时间复杂度：O(nlgn).
 */
 void heap_sort(int* seq, int len)
 {
-
+	for (int i = len / 2 - 1; i >= 0; i--)
+	{
+		max_heapify(seq, i, len);
+	}
+	for (int i = len - 1; i >= 0; i--)
+	{
+		std::swap(seq[0], seq[i]);
+		max_heapify(seq, 0, i);
+	}
 }
 
