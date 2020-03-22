@@ -1,6 +1,7 @@
+#include<iostream>
+
 /*
-	*Î¬³Ö×î´ó¶ÑµÄĞÔÖÊ
-	*Ê±¼ä¸´ÔÓ¶È£ºO(lgn)
+	ä¿æŒæœ€å¤§å †
 */
 void max_heapify(int* heap, int index, int size)
 {
@@ -20,8 +21,8 @@ void max_heapify(int* heap, int index, int size)
 	}
 }
 /*
-¶ÑÅÅĞò
-	*Ê±¼ä¸´ÔÓ¶È£ºO(nlgn).
+é€‰æ‹©æ’åºï¼š
+	æ—¶é—´å¤æ‚åº¦ï¼šO(n^2)
 */
 void heap_sort(int* seq, int len)
 {

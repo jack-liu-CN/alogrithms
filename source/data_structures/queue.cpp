@@ -1,5 +1,5 @@
-typedef struct queue
+struct queue
 {
 	int* seq;
 	int head;
-    };
+};

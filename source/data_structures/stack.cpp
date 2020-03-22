@@ -1,4 +1,4 @@
-typedef struct stack 
+struct stack 
 {
 	int* seq;
 	int top;

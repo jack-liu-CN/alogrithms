@@ -1,5 +1,5 @@
 /*
-½«Á½¸öÓĞĞòĞòÁĞºÏ²¢ÎªÒ»¸öÓĞĞòĞòÁĞ¡£
+	å°†ä¸¤ä¸ªæœ‰åºæ•°ç»„åˆå¹¶æˆä¸€ä¸ªæœ‰åºæ•°ç»„
 */
 void merge(int* seq, int left, int middle, int right)
 {
@@ -22,12 +22,10 @@ void merge(int* seq, int left, int middle, int right)
 		seq[i + left] = temp[i];
 	}
 }
+
 /*
-¹é²¢ÅÅĞò
-	*Ë¼Ïë£º·ÖÖÎ¡£
-	*ÎÈ¶¨ĞÔ£º²»ÎÈ¶¨¡£
-	*Ê±¼ä¸´ÔÓ¶È£ºO(nlgn)¡£
-	*¿Õ¼ä¸´ÔÓ¶È£ºO(n)¡£
+å½’å¹¶æ’åº
+	æ—¶é—´å¤æ‚åº¦ï¼šO(nlgn)
 */
 void merge_sort(int* seq, int left, int right)
 {

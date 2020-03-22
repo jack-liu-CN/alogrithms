@@ -1,10 +1,7 @@
 /*
-¶Ñ
-	*×î[´ó|Ğ¡]¶Ñ
-	*×î[´ó|Ğ¡]ÓÅÏÈ¶ÓÁĞ
-
+å †
 */
-typedef struct heap
+struct heap
 {
 	int capacity;
 	int size;

@@ -1,4 +1,8 @@
+#include<iostream>
 
+/*
+	返回一个位置q，使得 左边子数组 <= seq[q] <= 右边子数组
+*/
 int partition(int* seq, int left, int right)
 {
 	int i = left - 1;
@@ -15,7 +19,7 @@ int partition(int* seq, int left, int right)
 }
 
 /*
-	��������
+	快速排序
 */
 void quick_sort(int* seq, int p, int r)
 {

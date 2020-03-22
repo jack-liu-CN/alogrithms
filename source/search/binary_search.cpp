@@ -1,7 +1,5 @@
 /*
-二分查找
-	*必须采用顺序存储结构。
-	*必须按关键字大小有序排列。
+浜屽垎鏌ユ壘
 */
 int binary_search(int* seq, int len, int value)
 {

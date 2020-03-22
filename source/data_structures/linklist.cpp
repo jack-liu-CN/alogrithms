@@ -6,16 +6,16 @@ struct linknode
 	linknode(int v)
 	{
 		value = v;
-		next = NULL;
+		next = nullptr;
 	}
 };
 
 linknode* reverse_linklist(linknode* head)
 {
 	linknode* p_cur = head;
-	linknode* p_pre = NULL;
+	linknode* p_pre = nullptr;
 	linknode* temp;
-	while (p_cur != NULL)
+	while (p_cur != nullptr)
 	{
 		temp = p_pre;
 		p_pre = p_cur;
