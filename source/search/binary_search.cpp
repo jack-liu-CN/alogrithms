@@ -1,5 +1,8 @@
 /*
 二分查找
+	限制：有序查找。
+	时间复杂度:O(lgn)。
+	说明：不适用于频繁增加、修改元素值的数组。
 */
 int binary_search(int* seq, int len, int value)
 {
@@ -7,7 +10,7 @@ int binary_search(int* seq, int len, int value)
 	int right = len - 1;
 	while (left <= right)
 	{
-		int middle = (right + left) / 2;
+		int middle =  left + (right - left) / 2;
 		if (seq[middle] > value)
 		{
 			right = middle - 1;

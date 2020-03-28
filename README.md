@@ -3,7 +3,8 @@
 ## 算法部分  
 
 ### 1.查找  
-* 1.[二分查找](source/search/binary_search.cpp)  
+* [二分查找](source/search/binary_search.cpp)  
+* [插值查找](source/search/insertion_search.cpp)  
 ### 2.排序  
 * [冒泡排序](source/sort/bubble_sort.cpp)  
 * [选择排序](source/sort/select_sort.cpp)  
