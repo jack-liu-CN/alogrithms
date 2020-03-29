@@ -23,6 +23,3 @@
 ### 5.[贪心算法](source/4.analysis/greedy-algorithm.cpp)  
 
 ## 数据结构部分  
-
-
-## 算法题  

@@ -2,8 +2,8 @@
 	动态规划
 
 */
-#include<iostream>
-using namespace std;
+#include <algorithm>
+
 /*
 1.最大连续子数组和
 	限制：数组内必须含正数。(很关键)

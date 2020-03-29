@@ -18,15 +18,15 @@ void bucket_sort(int* seq, int len)
 	//计数
 	for (int i = 0; i < len; i++)
 	{
-		buckets[seq[i]]++;
+		bucket[seq[i]]++;
 	}
 	//按桶取出元素
 	for (int i = 0, j = 0; i < range; i++)
 	{
 		//说明该桶内还有元素
-		while (buckets[i] > 0)
+		while (bucket[i] > 0)
 		{
-			arr[j++] = i;
+			seq[j++] = i;
 			bucket[i]--;
 		}
 	}

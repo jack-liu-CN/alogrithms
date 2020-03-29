@@ -21,3 +21,12 @@
 /.vs/alogrithms/v16/ipch/AutoPCH/a5b0fe7e2ad90859/TREE.ipch
 .vscode/launch.json
 /.vs/alogrithms/v16/ipch/AutoPCH
+*.db
+*.ipch
+*.tlog
+*.obj
+*.pdb
+*.log
+*.txt
+*.dll
+*.ilk

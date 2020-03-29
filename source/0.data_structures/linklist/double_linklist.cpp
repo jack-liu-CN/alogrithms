@@ -23,7 +23,7 @@ struct dlinklist
 	dnode* head;
 	dnode* tail;
 
-	bool add(node* value);
-	bool remove(node* value);
+	bool add(dnode* value);
+	bool remove(dnode* value);
 	bool reverse();
 };
