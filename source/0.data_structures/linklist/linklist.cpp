@@ -1,12 +1,15 @@
+#include<iostream>
+using namespace std;
+
 /*
 单向链表结点
 */
-struct node
+struct linknode
 {
 	int value;
-	node* next;
+	linknode* next;
 
-	node(int v)
+	linknode(int v = 0)
 	{
 		value = v;
 		next = nullptr;
@@ -18,18 +21,28 @@ struct node
 */
 class linklist
 {
-	node* head;
+public:
+	linklist();
+	~linklist();
 
-	bool add(node* value);
-	bool remove(node* value);
+	void create(int n);
+	bool insert(int element, int index);
+	bool remove(int element);
+	void clear();
 	bool reverse();
+	bool is_empty() const;
+	int get_size() const;
+	void traverse() const;
+private:
+	linknode* head;	
+	int size;
 };
-
-node* reverse_linklist(node* head)
+/*
+linknode* reverse(linknode* head)
 {
-	node* p_cur = head;
-	node* p_pre = nullptr;
-	node* temp;
+	linknode* p_cur = head;
+	linknode* p_pre = nullptr;
+	linknode* temp;
 	while (p_cur != nullptr)
 	{
 		temp = p_pre;
@@ -39,4 +52,91 @@ node* reverse_linklist(node* head)
 	}
 	return p_pre;
 }
+*/
 
+linklist::linklist()
+{
+	head = nullptr;
+	size = 0;
+}
+
+linklist::~linklist()
+{
+	linknode* p = head, temp;
+	while (!p)
+	{
+		temp = p->next;
+		delete p;
+		p = temp;
+	}
+	size = 0;
+}
+
+void linklist::create()
+{
+	head = new linknode();
+	linknode* p = head;
+	cin >> p->value;
+	size++;
+	int val;
+	while (cin >> val)
+	{
+		linknode* node = new linknode(val);
+		size++;
+		p->next = node;
+		p = p->next;
+	}
+}
+
+bool linklist::insert(int element, int index)
+{
+	int i = 0;
+	linknode* p = head;
+	while (!p && i < index)
+	{
+		p = p->next;
+	}
+	if (p || i >= index)
+	{
+		return false;
+	}
+	linknode* node = new linknode(element);
+	node->next = p->next;
+	p->next = node;
+	return true;
+}
+
+bool linklist::remove(int element)
+{
+	return false;
+}
+
+void linklist::clear()
+{
+	~linklist();
+}
+
+bool linklist::reverse()
+{
+	return false;
+}
+
+bool linklist::is_empty() const
+{
+	return size == 0;
+}
+
+int linklist::get_size() const
+{
+	return size;
+}
+
+void linklist::traverse() const
+{
+	linknode* p = head;
+	while (p)
+	{
+		cout << p->value << endl;
+		p = p->next;
+	}
+}
