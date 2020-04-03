@@ -1,17 +1,18 @@
 #include<iostream>
-
+#include<vector>
+#include<stack>
 using namespace std;
 
 constexpr auto SPACE = ' ';
 
-struct BSTNode
+struct TreeNode
 {
 	int data;
-	BSTNode* left;
-	BSTNode* right;
-	BSTNode* parent;
+	TreeNode* left;
+	TreeNode* right;
+	TreeNode* parent;
 
-	BSTNode(int d, BSTNode* l, BSTNode* r, BSTNode* p) :
+	TreeNode(int d, TreeNode* l, TreeNode* r, TreeNode* p) :
 		data(d), left(l), right(r), parent(p) {}
 };
 
@@ -24,35 +25,41 @@ public:
 	BST();
 	~BST();
 
-	/*先序遍历*/
-	void preorder_traverse(BSTNode* tree);
-	/*中序遍历*/
-	void inorder_traverse(BSTNode* tree);
-	/*后序遍历*/
-	void postorder_traverse(BSTNode* tree);
-	/*递归搜索*/
-	BSTNode* recursive_search(BSTNode* tree, int value);
-	/*迭代搜索*/
-	BSTNode* iterative_search(int value);
-	/*最小值*/
-	BSTNode* minimum(BSTNode* tree);
-	/*最大值*/
-	BSTNode* maximum(BSTNode* tree);
-	/*找后继*/
-	BSTNode* successor(BSTNode* tree);
-	/*找前驱*/
-	BSTNode* predecessor(BSTNode* tree);
-	/*插入*/
+	///递归-先序遍历
+	void preorder_traverse(TreeNode* tree);
+	///迭代-先序遍历
+	void iterative_preorder_traverse(TreeNode* tree);
+	///递归-中序遍历
+	void inorder_traverse(TreeNode* tree);
+	///迭代-中序遍历
+	void iterative_inorder_traverse(TreeNode* tree);
+	///递归-后序遍历
+	void postorder_traverse(TreeNode* tree);
+	///迭代-后序遍历
+	void iterative_postorder_traverse(TreeNode* tree);
+	///递归搜索
+	TreeNode* recursive_search(TreeNode* tree, int value);
+	///迭代搜索
+	TreeNode* iterative_search(int value);
+	///最小值
+	TreeNode* minimum(TreeNode* tree);
+	///最大值
+	TreeNode* maximum(TreeNode* tree);
+	///找后继
+	TreeNode* successor(TreeNode* tree);
+	///找前驱
+	TreeNode* predecessor(TreeNode* tree);
+	///插入
 	void insert(int value);
-	/*删除*/
+	///删除
 	void remove(int value);
-	/*摧毁*/
+	///摧毁
 	void destory();
-	/*打印*/
+	///打印
 	void print();
 private:
-	/*根节点*/
-	BSTNode* root;
+	///根节点
+	TreeNode* root;
 };
 
 BST::BST(): root(nullptr){}
@@ -62,7 +69,7 @@ BST::~BST()
 	destory();
 }
 
-void BST::preorder_traverse(BSTNode* tree)
+void BST::preorder_traverse(TreeNode* tree)
 {
 	if (tree)
 	{
@@ -72,7 +79,20 @@ void BST::preorder_traverse(BSTNode* tree)
 	}
 }
 
-void BST::inorder_traverse(BSTNode* tree)
+void BST::iterative_preorder_traverse(TreeNode * tree)
+{
+	stack<TreeNode*>s;
+	while (!s.empty() || tree != nullptr)
+	{
+		if (tree != nullptr)
+		{
+			s.push(tree);
+
+		}
+	}
+}
+
+void BST::inorder_traverse(TreeNode* tree)
 {
 	if (tree)
 	{
@@ -82,7 +102,26 @@ void BST::inorder_traverse(BSTNode* tree)
 	}
 }
 
-void BST::postorder_traverse(BSTNode* tree)
+void BST::iterative_inorder_traverse(TreeNode * tree)
+{
+	stack<TreeNode*> s;
+	while (!s.empty() || tree != nullptr)
+	{
+		if (tree != nullptr)
+		{
+			s.push(tree);
+			tree = tree->left;
+		}
+		else
+		{
+			cout << s.top()->data << SPACE;
+			s.pop();
+			tree = tree->right;
+		}
+	}
+}
+
+void BST::postorder_traverse(TreeNode* tree)
 {
 	if (tree)
 	{
@@ -92,7 +131,11 @@ void BST::postorder_traverse(BSTNode* tree)
 	}
 }
 
-BSTNode* BST::recursive_search(BSTNode* tree, int value)
+void BST::iterative_postorder_traverse(TreeNode * tree)
+{
+}
+
+TreeNode* BST::recursive_search(TreeNode* tree, int value)
 {
 	if (!tree || tree->data == value)
 		return tree;
@@ -101,13 +144,13 @@ BSTNode* BST::recursive_search(BSTNode* tree, int value)
 		: recursive_search(tree->right, value);
 }
 
-//TO-DO
-BSTNode* BST::iterative_search(int value)
+TreeNode* BST::iterative_search(int value)
 {
-	return nullptr;
+	TreeNode *cur = root;
+
 }
 
-BSTNode* BST::minimum(BSTNode* tree)
+TreeNode* BST::minimum(TreeNode* tree)
 {
 	if (!tree)
 	{
@@ -120,7 +163,7 @@ BSTNode* BST::minimum(BSTNode* tree)
 	return tree;
 }
 
-BSTNode* BST::maximum(BSTNode* tree)
+TreeNode* BST::maximum(TreeNode* tree)
 {
 	if (!tree)
 	{
@@ -133,7 +176,7 @@ BSTNode* BST::maximum(BSTNode* tree)
 	return tree;
 }
 
-BSTNode* BST::successor(BSTNode* tree)
+TreeNode* BST::successor(TreeNode* tree)
 {
 	if (!tree)
 		return nullptr;
@@ -143,7 +186,7 @@ BSTNode* BST::successor(BSTNode* tree)
 		return minimum(tree->right);
 	}
 	//2.tree的右子树为空，则沿着tree向上找parent，直到找到该parent有左孩子。
-	BSTNode* p = tree->parent;
+	TreeNode* p = tree->parent;
 	while (p && (tree == p->right))
 	{
 		tree = p;
@@ -152,7 +195,7 @@ BSTNode* BST::successor(BSTNode* tree)
 	return p;
 }
 
-BSTNode* BST::predecessor(BSTNode* tree)
+TreeNode* BST::predecessor(TreeNode* tree)
 {
 	if (!tree)
 		return nullptr;
@@ -162,7 +205,7 @@ BSTNode* BST::predecessor(BSTNode* tree)
 		return maximum(tree->left);
 	}
 	//2.tree的左子树为空，则沿着tree向上找parent，直到找到该parent有右孩子。
-	BSTNode* p = tree->parent;
+	TreeNode* p = tree->parent;
 	while (p && (tree == p->left))
 	{
 		tree = p;
