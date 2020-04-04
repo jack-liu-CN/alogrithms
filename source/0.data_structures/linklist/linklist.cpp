@@ -62,17 +62,10 @@ linklist::linklist()
 
 linklist::~linklist()
 {
-	linknode* p = head, temp;
-	while (!p)
-	{
-		temp = p->next;
-		delete p;
-		p = temp;
-	}
-	size = 0;
+	clear();
 }
 
-void linklist::create()
+void linklist::create(int n)
 {
 	head = new linknode();
 	linknode* p = head;
@@ -113,7 +106,14 @@ bool linklist::remove(int element)
 
 void linklist::clear()
 {
-	~linklist();
+	linknode* p = head, *temp;
+	while (!p)
+	{
+		temp = p->next;
+		delete p;
+		p = temp;
+	}
+	size = 0;
 }
 
 bool linklist::reverse()
