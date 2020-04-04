@@ -1,5 +1,5 @@
 /*
-¶ş²æÊ÷(binary tree)
+??????(binary tree)
 */
 struct node
 {
