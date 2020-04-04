@@ -1,7 +1,5 @@
 #include<iostream>
 
-using namespace std;
-
 constexpr auto SPACE = ' ';
 
 struct BSTNode
@@ -66,7 +64,7 @@ void BST::preorder_traverse(BSTNode* tree)
 {
 	if (tree)
 	{
-		cout << tree->data << SPACE;
+		std::cout << tree->data << SPACE;
 		preorder_traverse(tree->left);
 		preorder_traverse(tree->right);
 	}
@@ -77,7 +75,7 @@ void BST::inorder_traverse(BSTNode* tree)
 	if (tree)
 	{
 		inorder_traverse(tree->left);
-		cout << tree->data << SPACE;
+		std::cout << tree->data << SPACE;
 		inorder_traverse(tree->right);
 	}
 }
@@ -88,7 +86,7 @@ void BST::postorder_traverse(BSTNode* tree)
 	{
 		postorder_traverse(tree->left);
 		postorder_traverse(tree->right);
-		cout << tree->data << SPACE;
+		std::cout << tree->data << SPACE;
 	}
 }
 
