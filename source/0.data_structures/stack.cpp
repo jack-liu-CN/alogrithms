@@ -9,6 +9,7 @@ class stack
 public:
 	stack(int cap);
 	~stack();
+
 	bool push(int element) const;
 	bool pop(int &element) const;
 	//·µ»ØÕ»¶¥ÔªËØ

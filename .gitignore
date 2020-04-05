@@ -1,7 +1,49 @@
-﻿################################################################################
-# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
-################################################################################
-.vscode/c_cpp_properties.json
+﻿# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
 .vscode/settings.json
-.vscode/tasks.json
+.vscode/c_cpp_properties.json
 .vscode/launch.json
+.vscode/tasks.json
+*.db
+*.ipch
+*.suo
+*.opendb
+*.sln
+*.vcxproj
+*.filters
+*.user
+*.tlog
+*.pdb
+*.log
+*.ilk
+*.txt
