@@ -1,6 +1,8 @@
 #include<iostream>
 #include<vector>
 #include<stack>
+#include<queue>
+
 using namespace std;
 
 constexpr auto SPACE = ' ';
@@ -41,10 +43,8 @@ public:
 	void iterative_inorder_traverse(TreeNode* tree);
 	//迭代-后序遍历
 	void iterative_postorder_traverse(TreeNode* tree);
-	//深度优先遍历
-	void dfs(TreeNode* tree);
-	//广度优先遍历
-	void bsf(TreeNode* tree);
+	//层次遍历
+	void level_traverse(TreeNode* tree);
 	//递归搜索
 	TreeNode* recursive_search(TreeNode* tree, int value);
 	//迭代搜索
@@ -192,12 +192,29 @@ void BST::iterative_postorder_traverse(TreeNode * tree)
 	}
 }
 
-void BST::dfs(TreeNode* tree)
+void BST::level_traverse(TreeNode* tree)
 {
-}
-
-void BST::bsf(TreeNode* tree)
-{
+	if (tree == nullptr)
+	{
+		return;
+	}
+	queue<TreeNode*> tq;
+	TreeNode* cur = tree, *temp;
+	tq.push(cur);
+	while (!tq.empty())
+	{
+		temp = tq.front();
+		cout << temp->data << SPACE;
+		tq.pop();
+		if (temp->left != nullptr)
+		{
+			tq.push(temp->left);
+		}
+		if (temp->right != nullptr)
+		{
+			tq.push(temp->right);
+		}
+	}
 }
 
 TreeNode* BST::recursive_search(TreeNode* tree, int value)
